@@ -10,6 +10,7 @@ import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.embedded.ServletListenerRegistrationBean;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
 
 /**
  * 现在可以直接运行 SpringBootSampleApplication的main方法，和执行普通java程序一样
@@ -49,6 +50,7 @@ public class SpringBootSampleApplication {
     	frBean.addUrlPatterns("/*");
     	frBean.setName("myFilter");
     	frBean.addInitParameter("paramName", "paramValue");
+    	frBean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return frBean;
     }
     
