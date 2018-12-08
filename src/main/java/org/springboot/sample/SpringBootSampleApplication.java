@@ -47,6 +47,8 @@ public class SpringBootSampleApplication {
     	FilterRegistrationBean frBean = new FilterRegistrationBean();
     	frBean.setFilter(new MyFilter());
     	frBean.addUrlPatterns("/*");
+    	frBean.setName("myFilter");
+    	frBean.addInitParameter("paramName", "paramValue");
         return frBean;
     }
     
